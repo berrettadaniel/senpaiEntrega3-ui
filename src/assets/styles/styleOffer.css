@@ -1,0 +1,179 @@
+/* CSS para pagina "ofrecemos.html" */
+
+/* RESET */
+* {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+/* HEADER */
+.headerOffer {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-style: ridge;
+    background-color: rgb(241, 207, 166);
+    background-position: center;
+    background-size: 50%;
+    background-image: url("../images/imgHeader.png");
+}
+
+.headerOffer .titulo {
+    font-size: 24px;
+}
+
+.headerOffer h1 {
+    font-weight: bolder ;
+    text-align: center;
+    color: rgb(131, 51, 5);
+}
+
+.headerOffer nav {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+/* GRID DEL LAYOUT */
+.gridContainerOffer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 80px;
+    grid-template-areas: "mainRow mainRow"
+                         "buscaServicio ofreceTrabajo"
+                         "footer footer";
+    box-sizing: border-box;
+    background-image:url("../images/paredLadrillo.jpg");
+    background-repeat: none;
+    min-height: calc(100vh - 80px); /* ALTO MINIMO DEL GRID: 100vh-ALTO HEADER */
+}
+
+/* FORMATOS DE TEXTO DEL GRID */
+.gridContainerOffer h1 {
+    font-size: 40px;
+    color: white;
+}
+
+.gridContainerOffer h2 {
+    font-size: 30px;
+    color: white;
+}
+
+.gridContainerOffer p {
+    font-size: 20px;
+    font-style: italic;
+    color: white;
+}
+
+
+/* PARTE SUPERIOR DEL GRID */
+/* .gridContainer .presentation */
+/* Es la presentacion del objetivo general del sitio  */
+.gridContainerOffer .presentation {
+    display: flex;
+    grid-area: mainRow;
+    min-height: 100px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: top;
+    padding: 10px;
+}
+
+/* PARTE INFERIOR IZQUIERDA DEL GRID */
+/* .gridContainer .SearchService */
+/* Se explica el objetivo de poder encontrar diferentes servicios */
+.gridContainerOffer .SearchService {
+    display: flex;
+    grid-area: buscaServicio;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+/* PARTE INFERIOR DERECHA DEL GRID */
+/* .gridContainer .OfferJob */
+/* Se explica el objetivo de poder ofrecer servicios */
+.gridContainerOffer .OfferJob {
+    display: flex;
+    grid-area: ofreceTrabajo;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+
+/* FOOTER */
+.footerOffer {
+    display: flex;
+    grid-area: footer;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-style: ridge;
+    background-color: rgb(224, 167, 96);
+    width: 100%;
+}
+
+/*--------------------------*/
+
+
+
+/* OPCIONES PARA MOBILE */
+@media (max-width: 768px) {
+
+    /* HEADER PARA MOBILE */
+    .headerOffer {
+        width: 100%;
+        height: 70px;
+        padding: 5px;
+        background-image: url("../images/imgHeaderMin.png");
+    }
+
+    .headerOffer h1 {
+        font-weight: bold;
+        color: black;
+    }
+
+    /* GRID DEL LAYOUT PARA MOBILE */
+    .gridContainerOffer {
+        grid-template-rows: 0.5fr 1fr;
+    }
+
+    /* FORMATOS DE TEXTO DEL GRID PARA MOBILE */
+    .gridContainerOffer h1 {
+        font-size: 25px;
+        color: white;
+    }
+
+    .gridContainerOffer h2 {
+        font-size: 18px;
+        color: white;
+    }
+
+    .gridContainerOffer p {
+        font-size: 14px;
+        font-style: italic;
+        color: white;
+    }
+
+    /* FOOTER PARA MOBILE */
+    .footerOffer {
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        padding: 5px;
+    }
+}

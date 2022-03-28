@@ -1,0 +1,236 @@
+/* CSS para pagina "servicio.html" */
+
+
+/* RESET */
+* {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+/* HEADER */
+.headerService {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-style: ridge;
+    background-color: rgb(241, 207, 166);
+    background-position: center;
+    /* "background-image" debe variar segun el servicio elegido
+        Se carga en el html */
+    background-size: 8%;
+}
+
+.headerService h1 {
+    font-size: 24px;
+    font-weight: bolder ;
+    text-align: center;
+    color: rgb(131, 51, 5);
+}
+
+.headerService strong {
+    font-weight: bolder ;
+    color: rgb(131, 51, 5);
+}
+
+.headerService nav {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* FIN DEL HEADER */
+
+
+/* GRID DEL LAYOUT */
+/* croquis del gridContainerService
+
+listaEmpresas> son las empresas por cada servicio
+empresaSel> es la empresa elegida de la lista y se muestran datos: nombre, mail y telf
+menu> boton de Nuevo Trabajo para iniciar con la empresa (1)
+      boton de Finalizadas para ver tareas terminadas (2)
+menuTareas> cuadro de texto para tarea realizada y boton para agregarla con la fecha del dia y un boton de eliminacion
+
+(1) se muestra si no hay trabajo en curso, y si se presiona se muestra una lista en blanco para fecha y tarea
+    y se debe pedir un titulo de esa lista de tareas nuevas (es para ver las finalizadas despues)
+(2) solo mostrar la descripcion del trabajo terminado
+*/
+
+.gridContainerService {
+    display: grid;
+    grid-template-columns: 100px 140px 1fr 2fr;
+    grid-template-rows: 100px 1fr 80px 80px;
+    grid-template-areas: "listaEmpresas empresaSel menu menu"
+                         "listaEmpresas colFecha colObservacion nada"
+                         "listaEmpresas menuTareas menuTareas nada"
+                         "footer footer footer footer";
+    box-sizing: border-box;
+    background-image:url("../images/paredLadrillo.jpg");
+    background-repeat: none;
+    min-height: calc(100vh - 80px); /* ALTO MINIMO DEL GRID: 100vh-ALTO HEADER */
+}
+
+
+/* FORMATOS DE TEXTO DEL GRID */
+.gridContainerService p {
+    font-size: 20px;
+    font-style: italic;
+    color: white;
+}
+
+
+/* Lista de Empresas */
+.gridContainerService .listaEmpService {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    grid-area: listaEmpresas;
+    background-color: rgb(150, 125, 94);
+    border-style: double;
+}
+
+.gridContainerService .listaEmpService ul p {
+    font-style: normal;
+    font-size: small;
+}
+
+/* Empresa Seleccionada */
+.gridContainerService .empSelService {
+    display: block;
+    grid-area: empresaSel;
+    background-color: rgb(150, 125, 94);
+}
+
+.gridContainerService .empSelService p {
+    font-style: normal;
+    font-size: small;
+}
+
+/* Menu de los servicios por Empresa */
+.gridContainerService .menuService {
+    display: flex;
+    background-color: rgb(150, 125, 94);
+    grid-area: menu;
+    min-height: 100px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: space-between;
+    justify-content: top;
+    padding: 10px;
+}
+
+/* Lista de tareas hechas por la emresa */
+/* Columna de fecha de tareas realizadas */
+.gridContainerService .tareasHechasFecha {
+    display: table-column;
+    grid-area: colFecha;
+    border-style: groove;
+    background-color: rgb(150, 125, 94);
+}
+
+.gridContainerService .tareasHechasFecha p {
+    font-style: normal;
+    font-size: small;
+}
+
+/* Columna de observaciones por tarea realizada en cierta fecha */
+.gridContainerService .tareasHechasObs {
+    display: table-column;
+    grid-area: colObservacion;
+    border-style: groove;
+    background-color: rgb(150, 125, 94);
+}
+
+.gridContainerService .tareasHechasObs p {
+    font-style: normal;
+    font-size: small;
+}
+
+/* Menu de tareas donde se ingresa obervacion y se agrega a la lista */
+.gridContainerService .menuTareasService {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    grid-area: menuTareas;
+    background-color: rgb(150, 125, 94);;
+}
+
+.gridContainerService .menuTareasService p {
+    font-style: normal;
+    font-size: small;
+}
+
+.gridContainerService .menuTareasService input {
+    width: 150px;
+}
+
+/* Formato generico para los botones */
+button {
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(241, 207, 166);
+    font-size: small;
+}
+
+/* FOOTER */
+.footerService {
+    display: flex;
+    grid-area: footer;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-style: ridge;
+    background-color: rgb(224, 167, 96);
+    width: 100%;
+}
+
+/*--------------------------*/
+
+
+
+/* OPCIONES PARA MOBILE */
+@media (max-width: 768px) {
+
+    /* HEADER PARA MOBILE */    /* esta seccion de mobile para el "header" esta pronta para este CSS */
+    .headerService {
+        width: 100%;
+        height: 70px;
+        padding: 5px;
+    }
+
+    .headerService h1 {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .header strong {
+        font-weight: bold;
+        font-size: 80%;
+    }
+
+
+    /* GRID DEL LAYOUT PARA MOBILE */
+    .gridContainerService {
+        grid-template-rows: 0.5fr 1fr;
+    }
+
+    .gridContainerService .tareasHechasObs {
+        min-width: 170px;
+    }
+
+    /* FOOTER PARA MOBILE */
+    .footerService {
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        padding: 5px;
+    }
+}

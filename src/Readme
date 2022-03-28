@@ -1,0 +1,14 @@
+DB.JSON
+
+La ruta de los archivos de imagenes en las carpetas del proyecto es:
+/public/assets/imagesOficios/*.*
+
+Nota del docente:
+Al cargar la data externamente, no podemos hacer que las imagenes las procese REACT,
+por lo que tienen que ir a la vieja escuela
+Cuando es contenido la imagen siempre tiene que estar fuera, en la api o en la carpeta public
+
+Las imagenes que tiene que procesar react son mas imagenes relacionadas al diseño
+Ejemplo logos, iconos, etc
+
+

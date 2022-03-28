@@ -1,0 +1,183 @@
+/* CSS para pagina "login.html" */
+
+/* RESET */
+* {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+/* HEADER */
+.headerContact {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-style: ridge;
+    background-color: rgb(241, 207, 166);
+    background-position: center;
+    background-size: 50%;
+    background-image: url("../images/imgHeader.png");
+}
+
+.headerContact .titulo {
+    font-size: 24px;
+}
+
+.headerContact h1 {
+    font-weight: bolder ;
+    text-align: center;
+    color: rgb(131, 51, 5);
+}
+
+.headerContact nav {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Son los botones para Ingresar con usuario registrado
+y para Registrar un usuario nuevo */
+button {
+    width: 150px;
+    height: 40px;
+    background-color: rgb(241, 207, 166);
+}
+
+
+/* GRID DEL LAYOUT */
+.gridContainerContact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 80px;
+    grid-template-areas: "imagen formulario"
+                         "guiaForm formulario"
+                         "footer footer";
+    box-sizing: border-box;
+    min-height: calc(100vh - 80px); /* ALTO MAXIMO DEL GRID: 100vh-ALTO HEADER */
+}
+
+
+/* PARTE IZQUIERDA SUPERIOR DEL GRID */
+
+/* Imagen minimalista para rellenar espacio */
+.ImagenRellenoContact {
+    grid-area: imagen;
+    display: flex;
+    border-radius: 50px;
+    background-image: url("../images/Ladrillos.png");
+    opacity: 0.5;
+    background-position: center;
+    background-size:10%;
+    margin: 10px;
+}
+
+
+/* PARTE IZQUIERDA INFERIOR DEL GRID */
+
+/* Guia breve para el formulario */
+
+.GuiaBreveContact {
+    grid-area: guiaForm;
+    display: inline-block;
+    margin: 10px;
+}
+
+.GuiaBreveContact h1 {
+    font-weight: bold;
+}
+
+
+/* PARTE DERECHA DEL GRID */
+
+/* Formulario para e-mail */
+
+.FormContacto {
+    grid-area: formulario;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    padding: 10px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    margin-right: 25%;
+}
+
+.FormContacto .TextoMensaje {
+    width: 100%;
+    height: calc(50vh - 80px);
+    border-radius: 5px;
+}
+
+.FormContacto textarea {
+    padding: 5px;
+}
+
+
+/* FOOTER */
+
+.footerFlexContact {
+    grid-area: footer;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-style: ridge;
+    background-color: rgb(224, 167, 96);
+    width: 100%;
+}
+
+/*--------------------------*/
+
+
+
+/* OPCIONES PARA MOBILE */
+@media (max-width: 768px) {
+    
+    /* HEADER PARA MOBILE */
+    .headerContact {
+        width: 100%;
+        height: 70px;
+        padding: 5px;
+        background-image: url("../images/imgHeaderMin.png");
+    }
+
+    .headerContact h1 {
+        font-weight: bold;
+        color: black;
+    }
+
+
+    /* GRID DEL LAYOUT PARA MOBILE */
+    .gridContainerContact {
+        grid-template-columns: 1fr;
+        grid-template-areas: "LogUsr"
+                             "RegUsr"
+                             "footer";
+    }
+
+    /* PARTE IZQUIERDA DEL GRID PARA MOBILE */
+    /* .BannerSitio - No se muestra */
+    .BannerSitio {
+        display: none;
+    }
+
+
+    /* FOOTER PARA MOBILE */
+    .footerFlexContact {
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        padding: 5px;
+    }
+
+}

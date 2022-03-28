@@ -1,0 +1,188 @@
+/* CSS para pagina "login.html" */
+
+/* RESET */
+* {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+/* HEADER */
+.headerLogin {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-style: ridge;
+    background-color: rgb(241, 207, 166);
+    background-position: center;
+    background-size: 50%;
+    background-image: url("../images/imgHeader.png");
+}
+
+.headerLogin .titulo {
+    font-size: 24px;
+}
+
+.headerLogin h1 {
+    font-weight: bolder ;
+    text-align: center;
+    color: rgb(131, 51, 5);
+}
+
+.headerLogin nav {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* GRID DEL LAYOUT */
+.gridContainerLogin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 80px;
+    grid-template-areas: "banner LogUsr"
+                         "banner RegUsr"
+                         "footer footer";
+    box-sizing: border-box;
+    min-height: calc(100vh - 80px); /* ALTO MAXIMO DEL GRID: 100vh-ALTO HEADER */
+}
+
+
+/* PARTE IZQUIERDA DEL GRID */
+
+/* .BannerSitio */
+/* Es el banner propio del sitio */
+.BannerSitioLogin {
+    grid-area: banner;
+    background-image: url("../images/casa21531.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* .BannerSitio .slogan */
+/* Es el slogan correspondiente dentro del banner */
+.BannerSitioLogin .slogan {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+}
+
+.BannerSitioLogin .slogan h1 {
+    font-weight: bolder;
+    color: rgb(17, 245, 55);
+    font-style: italic;
+    font-size: 25px;
+}
+
+
+/* Son los botones para Ingresar con usuario registrado
+y para Registrar un usuario nuevo */
+button {
+    width: 150px;
+    height: 40px;
+    background-color: rgb(241, 207, 166);
+}
+
+
+/* PARTE DERECHA SUPERIOR DEL GRID */
+
+.LoginUsuario {
+    grid-area: LogUsr;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    margin-right: 25%;
+}
+
+/* PARTE DERECHA INFERIOR DEL GRID */
+
+.RegistrarUsuario {
+    grid-area: RegUsr;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    margin-right: 25%;
+}
+
+
+/* FOOTER */
+
+.footerFlexLogin {
+    grid-area: footer;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-style: ridge;
+    background-color: rgb(224, 167, 96);
+    width: 100%;
+}
+
+/*--------------------------*/
+
+
+
+/* OPCIONES PARA MOBILE */
+@media (max-width: 768px) {
+    
+    /* HEADER PARA MOBILE */
+    .headerLogin {
+        width: 100%;
+        height: 70px;
+        padding: 5px;
+        background-image: url("../images/imgHeaderMin.png");
+    }
+
+    .headerLogin h1 {
+        font-weight: bold;
+        color: black;
+    }
+
+
+    /* GRID DEL LAYOUT PARA MOBILE */
+    .gridContainerLogin {
+        grid-template-columns: 1fr;
+        grid-template-areas: "LogUsr"
+                             "RegUsr"
+                             "footer";
+    }
+
+    /* PARTE IZQUIERDA DEL GRID PARA MOBILE */
+    /* .BannerSitio - No se muestra */
+    .BannerSitioLogin {
+        display: none;
+    }
+
+
+    /* FOOTER PARA MOBILE */
+    .footerFlexLogin {
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        padding: 5px;
+    }
+
+}

@@ -1,0 +1,344 @@
+/* CSS para pagina "index.html" */
+
+/* RESET */
+* {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+/* HEADER */
+.header {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-style: ridge;
+    background-color: rgb(241, 207, 166);
+    background-position: center;
+    background-size: 50%;
+    background-image: url("../images/imgHeader.png");
+}
+
+.header .titulo {
+    font-size: 24px;
+}
+
+.header h1 {
+    font-weight: bolder ;
+    text-align: center;
+    color: rgb(131, 51, 5);
+}
+
+/* Corregir el uso de los h1 de acuerdo a las sugerencias del docente en la 1er entrega */
+.header h2 {
+    color: rgb(131, 51, 5);
+}
+
+.header nav {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .header .navIcon */
+/* Corresponde al icono "hamburguesa" que aparecera si la pantalla tiene dimensiones de MOBILE */
+/* Cuando tengamos lo correspondiente a JS se realizara un menu pop-up para acceder a las opciones */
+/* que aparecen en DESKKTOP (Que ofrecemos, Contacto, Ingrese aqui) */
+/* Para cumplir con la entrega en el index.html se dejara un link a ofrecemos.html para el requerimiento */
+/* de que haya comunicacion entre 2 paginas. */
+.header .navIcon {
+    display: none;
+    text-align: left;
+}
+
+.header .navIcon img {
+    width: 50px;
+    height: 50px;
+}
+
+
+/* GRID DEL LAYOUT */
+.gridContainer {
+    display: grid;
+    grid-template-columns: 250px 1fr 250px;
+    grid-template-rows: 300px 1fr 80px;
+    grid-template-areas: "advertise1 banner advertise2"
+                         "services services services"
+                         "footer footer footer";
+    box-sizing: border-box;
+    min-height: calc(100vh - 80px); /* ALTO MINIMO DEL GRID: 100vh-ALTO HEADER */
+}
+
+
+/* PRIMERA FILA DEL GRID */
+
+/* .advertisement1 */
+/* Es la publicidad a la izquierda del banner */
+.advertisement1 {
+    grid-area: advertise1;
+    background-image: url("../images/advertisements/advertise1.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size:contain;
+}
+
+/* .BannerSitio */
+/* Es el banner propio del sitio */
+.BannerSitio {
+    grid-area: banner;
+    background-image: url("../images/casa21531.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* .BannerSitio .slogan */
+/* Es el slogan correspondiente dentro del banner */
+.BannerSitio .slogan {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+    padding: 10px;
+}
+
+.BannerSitio .slogan h2 {
+    font-weight: bolder;
+    color: rgb(17, 245, 55);
+    font-style: italic;
+    font-size: 25px;
+}
+
+/* advertisement2 */
+/* Es la publicidad a la derecha del banner */
+.advertisement2 {
+    grid-area: advertise2;
+    background-image: url("../images/advertisements/advertise2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+}
+
+
+/* SEGUNDA FILA DEL GRID */
+
+/* Lista de servicios (flexbox) */
+.servicesFlex {
+    grid-area: services;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Cada item de la lista de servicios */
+.servicesFlex .service {
+    border-style: solid;
+    border-color: rgb(207, 137, 7);
+    text-align: center;
+}
+
+.servicesFlex .service img {
+    width:150px;
+    height: 150px;
+}
+
+
+/* Con esta clase determino si se muestra un servicio o no en la @media para MOBILE */
+/* La sugerencia en las correcciones de Gustavo fue que mostrara solo 2 servicio y con un tamaño mayor */
+.servicesFlex .serviceMuestro {
+    display: block;
+}
+
+
+
+/* Comportamiento de cada item cuando pasa el mouse (hover) */
+/* Ref. Clase 10 */
+.servicesFlex .service:hover {
+    border-style: groove;
+    border-color: rgb(207, 104, 7);
+}
+
+.servicesFlex .service:hover img {
+    width: 140px;
+    height: 140px;
+}
+
+/* Transicion para el "hover" */
+.servicesFlex .service {
+    transition-property: border-style;
+    transition-duration: 50ms;
+    transition-timing-function: ease-in;
+    transition-delay: 200ms;
+    overflow: hidden;
+}
+
+.servicesFlex .service:hover img {
+    transition-property: width height;
+    transition-duration: 50ms;
+    transition-timing-function: ease-in;
+    transition-delay: 200ms;
+}
+
+
+/* TERCERA FILA DEL GRID */
+
+.footerFlex {
+    grid-area: footer;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-style: ridge;
+    background-color: rgb(224, 167, 96);
+    width: 100%;
+}
+
+/*--------------------------*/
+
+
+
+/* OPCIONES PARA MOBILE */
+@media (max-width: 768px) {
+
+    /* PRIMERA FILA DEL GRID PARA MOBILE */
+    
+    /* HEADER PARA MOBILE */
+    .header {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content:space-around;
+        align-items: center;
+        height: 70px;
+        padding: 5px;
+        background-image: url("../images/imgHeaderMin.png");
+    }
+
+    .header h1 {
+        font-weight: bold;
+        color: black;
+    }
+
+    .header nav {
+        display: none;
+    }
+
+    /* .header .navIcon PARA MOBILE */
+    /* El icono "hamburguesa" se vuelve visible en modo MOBILE */
+    .header .navIcon {
+        display: block;
+    }
+
+    .header .navIcon img {
+        display: block;
+        width: 50px;
+        height: 50px;
+    }
+
+
+    /* GRID DEL LAYOUT PARA MOBILE */
+    .gridContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 6fr 1fr;
+        grid-template-areas: "banner"
+                             "services"
+                             "footer";
+        box-sizing: border-box;
+    }
+
+    /* RPIMERA FILA DEL GRID PARA MOBILE */
+    /* .BannerSitio PARA MOBILE */
+    /* La imagen de fondo no se muestra */
+    .BannerSitio {
+        grid-area: banner;
+        background-image: none;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        background-color: darksalmon;
+    }
+
+    /* Solo se despliega el texto del slogan. */
+    .BannerSitio .slogan {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    .BannerSitio .slogan h1 {
+        font-weight:normal;
+        font-style: normal;
+        color: black;
+        font-size: 20px;
+    }
+
+
+    /* SEGUNDA FILA DEL GRID PARA MOBILE */
+    /* Lista de servicios (flexbox) */
+    .servicesFlex {
+        grid-area: services;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction:column;
+        justify-content:space-around;
+        padding: 5px;
+    }
+
+    /* Cada item de la lisa de servicios PARA MOBILE */
+    /* Aparecen con vertices redondeados, fuente y tamaño reducidos  */
+    .servicesFlex .service {
+        text-align: center;
+        border-radius: 20px;
+    }
+
+    .servicesFlex h2 {
+        font-size: 12px;
+    }
+
+    .servicesFlex .service img {
+        width: 160px; /*90px;*/
+        height: 160px; /*90px;*/
+    }
+
+
+    /* Con esta clase determino si se muestra un servicio o no en la @query */
+    /* La sugerencia en las correcciones de Gustavo fue que mostrara solo 2 servicio y con un tamaño mayor */
+    .servicesFlex .serviceMuestro {
+        display: none;
+    }
+
+
+    /* Comportamiento de cada item cuando pasa el mouse (hover) PARA MOBILE */
+    /* Ref. Clase 10 */
+    .servicesFlex .service:hover {
+        border-color: rgb(207, 104, 7);
+    }
+
+    .servicesFlex .service:hover img {
+        width: 80px;
+        height: 80px;
+    }
+
+
+    /* TERCERA FILA DEL GRID PARA MOBILE */
+    .footerFlex {
+        display: initial;
+        flex-direction: column;
+        align-items: left;
+        padding: 5px;
+    }
+
+}
