@@ -23,11 +23,18 @@ export function ServicioPage() {
         });
     }, []);
 
+    const indice = params.id;
+    let servicio = servicios.forEach(servElem => {
+        if (servElem.id === indice){
+            servElem.nombre;
+        };
+    });
+
     return (
         <>
             <Header titulo = "SEGUIMIENTO DE SERVICIOS"
                     opcion1 = "Volver" opcion1link="/"
-                    opcion2 = {params.id} opcion2link=""
+                    opcion2 = {servicio} opcion2link="" //{params.id} opcion2link=""
                     opcion3 = "Hola Daniel" opcion3link="" />
 
             <div className="gridContainerService">
