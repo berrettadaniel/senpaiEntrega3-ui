@@ -1,6 +1,6 @@
 //servicios.html
 
-import { Header } from '../common/Header';
+import { HeaderService } from './HeaderService';
 import { Footer } from '../common/Footer';
 import { useEffect, useState } from "react";
 import { API_URL } from "../../api/api.js";
@@ -14,28 +14,26 @@ export function ServicioPage() {
     const params = useParams();
 
     //Para el manejo de estados
-    const [servicios, setServicios] = useState([]);
+    const [{servicio, transpHeaderImg}, setServicio] = useState("");
 
     //Efecto secundario - fetch con AXIOS
     useEffect(() =>{
         API_URL.get("/servicios").then((response) => {
-            setServicios(response.data);  //se cambia el estado para re-dibujar la pagina
+            const indice = params.id;
+            const servicios = response.data;
+            const servicio = servicios[indice].nombre;
+            const transpHeaderImg = servicios[indice].archivoTransp; // ----> imagen del header segun el servicio
+            setServicio({servicio, transpHeaderImg});  //se cambia el estado para re-dibujar la pagina
         });
     }, []);
 
-    const indice = params.id;
-    let servicio = servicios.forEach(servElem => {
-        if (servElem.id === indice){
-            servElem.nombre;
-        };
-    });
-
     return (
         <>
-            <Header titulo = "SEGUIMIENTO DE SERVICIOS"
+            <HeaderService titulo = "SEGUIMIENTO DE SERVICIOS"
                     opcion1 = "Volver" opcion1link="/"
-                    opcion2 = {servicio} opcion2link="" //{params.id} opcion2link=""
-                    opcion3 = "Hola Daniel" opcion3link="" />
+                    opcion2 = {servicio} opcion2link=""
+                    opcion3 = "Hola Daniel" opcion3link=""
+                    imagenTransp = {transpHeaderImg}/>
 
             <div className="gridContainerService">
 
