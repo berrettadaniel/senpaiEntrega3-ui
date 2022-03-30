@@ -35,42 +35,45 @@ export function ServicioPage() {
                     opcion3 = "Hola Daniel" opcion3link=""
                     imagenTransp = {transpHeaderImg}/>
 
+{           /* GRID CONTAINER */}
             <div className="gridContainerService">
 
-                <div className="menuServicios">
-                    <p>Nuevo</p>
-                    <p>En curso</p>
-                    <p>Finalizadas</p>
+                <div className="listaEmpService">
+                    <ul><p>Empresa 1</p></ul>
+                    <ul><p>Empresa 2</p></ul>
+                    <ul><p>Empresa 3</p></ul>
+                    <ul><p>Empresa 4</p></ul>
+                    <ul><p>Empresa 5</p></ul>
                 </div>
 
-                <div>
-                    <p>Empresa</p>
-                    <p>telefono</p>
-                    <p>e-mail</p>
+                <div className="empSelService">
+                    <p>Developito</p>
+                    <p>094 054244</p>
+                    <p>berretta.daniel@gmail.com</p>
                 </div>
 
-                {/* En el mismo cuadro del grid,
-                        "1 formulario" para ingresar uno nuevo
-                        "1 formulario" para ver un trabajo en curso (lista de fechas y descripciones)
-                        "1 formulario" para ver las tareas finalizadas */}
-
-                <div className="formulario">
-                    <div className="nuevoForm"> {/* debe arrancar como display: none */}
-                        <p>Nuevo trabajo</p>
-                    </div>
-                    
-                    <div className="enCursoForm"> {/*} debe arrancar como display: none */}
-                        <p>Trabajo en curso</p>
-                    </div>
-
-                    <div className="finForm"> {/* debe arrancar como display: none */}
-                        <p>Finalizadas</p>
-                    </div>
+                <div className="menuService">
+                    <button>Nuevo Trabajo</button>
+                    <button>Finalizadas</button>
                 </div>
+
+                <div className="tareasHechasFecha">
+                    <p>10/01/1997</p>
+                </div>
+
+                <div className="tareasHechasObs">
+                    <p>Todo cambio</p>
+                </div>
+
+                <div className="menuTareasService">
+                    <p>Tarea realizada
+                        <input type="text" name="tareaHechaDesc" /></p>
+                    <button>Agregar</button>
+                </div>
+
+{              /* Footer */}
+                <Footer />
             </div>
-
-            {/* Footer */}
-            <Footer />
         </>
     );
 }
