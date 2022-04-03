@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { BannerSitio } from "../common/BannerSitio.jsx";
 import { Footer } from "../common/Footer.jsx";
 import { useEffect, useState } from "react";
-import { API_URL } from "../../api/api.js";
+import { api } from "../../api/api.js";
 
 export function IndexGridContainer() {
     //Para el manejo de estados
@@ -12,7 +12,7 @@ export function IndexGridContainer() {
 
     //Efecto secundario - fetch con AXIOS
     useEffect(() =>{
-        API_URL.get("/servicios").then((response) => {
+        api.get("/servicios").then((response) => {
             setServicios(response.data);  //se cambia el estado para re-dibujar la pagina
         });
     }, []);

@@ -3,7 +3,7 @@
 import { HeaderService } from '../common/HeaderService';
 import { Footer } from '../common/Footer';
 import { useEffect, useState } from "react";
-import { API_URL } from "../../api/api.js";
+import { api } from "../../api/api.js";
 import { useParams } from 'react-router-dom';
 
 export function ServicioPage() {
@@ -18,7 +18,7 @@ export function ServicioPage() {
 
     //Efecto secundario - fetch con AXIOS
     useEffect(() =>{
-        API_URL.get("/servicios").then((response) => {
+        api.get("/servicios").then((response) => {
             const indice = params.id;
             const servicios = response.data;
             const servicio = servicios[indice].nombre;
