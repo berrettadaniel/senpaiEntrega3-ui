@@ -1,6 +1,6 @@
 //servicios.html
 
-import { HeaderService } from './HeaderService';
+import { HeaderService } from '../common/HeaderService';
 import { Footer } from '../common/Footer';
 import { useEffect, useState } from "react";
 import { API_URL } from "../../api/api.js";

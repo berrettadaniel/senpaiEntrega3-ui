@@ -1,4 +1,4 @@
-//Header del sitio
+//Header de "servicio.html"
 
 // Las props esperadas son:
 // titulo, es el titulo que aparece arriba
@@ -9,19 +9,6 @@
 // opcion3, es el texto del link que aparece a la dercha debajo del titulo
 // opcion3link, el link correspondiente
 // imagenTransp ??????
-
-
-/*
-<div className="service" key={servicio.id}>
-                            <Link to={`/servicio/${num}`}>
-                                <img
-                                    src={servicio.archivo}
-                                    alt={servicio.nombre} />
-                                <h2>{servicio.nombre}</h2>
-                            </Link>
-                        </div>
-*/
-
 
 import { Link } from 'react-router-dom';
 
