@@ -27,6 +27,22 @@ export function ServicioPage() {
         });
     }, []);
 
+    const handleClick = (indice) => {
+        console.log(indice);
+
+        const [{listaEmpresas}, setEmpresas] = useState("");
+
+        useEffect(() =>{
+        api.get("/servicio/" + { indice }).then((response) => {
+            const empresas = response.data;
+            let listaEmpresas = [];
+            empresas.forEach((elemEmp) => {
+                listaEmpresas.push(elemEmp);
+            });
+            setEmpresas({listaEmpresas});
+        });
+    }, [])};
+
     return (
         <>
             <HeaderService titulo = "SEGUIMIENTO DE SERVICIOS"
@@ -39,11 +55,11 @@ export function ServicioPage() {
             <div className="gridContainerService">
 
                 <div className="listaEmpService">
-                    <ul><p>Empresa 1</p></ul>
-                    <ul><p>Empresa 2</p></ul>
-                    <ul><p>Empresa 3</p></ul>
-                    <ul><p>Empresa 4</p></ul>
-                    <ul><p>Empresa 5</p></ul>
+                    {listaEmpresas.map((empresa, index) => {
+                        return (
+                            <ul><button onClick ={() => handleClick(index)}>{ empresa.nombre }</button></ul>
+                        );
+                    })};
                 </div>
 
                 <div className="empSelService">
