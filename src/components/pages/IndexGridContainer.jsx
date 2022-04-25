@@ -31,7 +31,7 @@ export function IndexGridContainer() {
             <div className="servicesFlex">
 
                 {servicios.map(function(servicio) {
-                    const num = servicio.id - 1;
+                    const num = servicio.id;
 
                     return(
                         <div className="service" key={servicio.id}>

@@ -14,34 +14,50 @@ export function ServicioPage() {
     const params = useParams();
 
     //Para el manejo de estados
-    const [{servicio, transpHeaderImg}, setServicio] = useState("");
+    const [{servicio, transpHeaderImg}, setServicio] = useState("");   //nombre del servicio en el Header
+    const [listaEmpresasAux, setEmpresas] = useState([]);              //lista de empresas de ese servicio
 
     //Efecto secundario - fetch con AXIOS
     useEffect(() =>{
-        api.get("/servicios").then((response) => {
-            const indice = params.id;
-            const servicios = response.data;
-            const servicio = servicios[indice].nombre;
-            const transpHeaderImg = servicios[indice].archivoTransp; // ----> imagen del header segun el servicio
+
+        //Buscar datos del servicio
+        api.get("/servicios/" + params.id).then((response) => {
+            const servicio = response.data.nombre;
+            const transpHeaderImg = response.data.archivoTransp; // ----> imagen del header segun el servicio
             setServicio({servicio, transpHeaderImg});  //se cambia el estado para re-dibujar la pagina
         });
+
+        //Buscar empresas del servicio
+        api.get("/empresas/servicio/"  + params.id).then((response) => {
+            const empresas = response.data;
+            let listaEmpresasAux = [];
+            empresas.forEach((elemEmp) => {
+                listaEmpresasAux.push(elemEmp);
+            });
+            setEmpresas(listaEmpresasAux);
+        });
+
     }, []);
 
-    const handleClick = (indice) => {
-        console.log(indice);
 
-        const [{listaEmpresas}, setEmpresas] = useState("");
+    const handleClick = (empresa) => {
+        console.log(empresa)
+        //const [{empresaNombre, empresaTel}, setEmpresaSel] = useState("");
+        //useEffect (() => {
+            const empresaNombre = empresa.nombre;
+            const empresaTel = empresa.telefono;
+        //    setEmpresaSel({empresaNombre, empresaTel});
+        //})
+        // api.get("/servicio/" + { indice }).then((response) => {
+        //     const empresas = response.data;
+        //     let listaEmpresasAux = [];
+        //     empresas.forEach((elemEmp) => {
+        //         listaEmpresasAux.push(elemEmp);
+        //     });
+        //     setEmpresas(listaEmpresasAux);
+        // });
+    };
 
-        useEffect(() =>{
-        api.get("/servicio/" + { indice }).then((response) => {
-            const empresas = response.data;
-            let listaEmpresas = [];
-            empresas.forEach((elemEmp) => {
-                listaEmpresas.push(elemEmp);
-            });
-            setEmpresas({listaEmpresas});
-        });
-    }, [])};
 
     return (
         <>
@@ -55,17 +71,17 @@ export function ServicioPage() {
             <div className="gridContainerService">
 
                 <div className="listaEmpService">
-                    {listaEmpresas.map((empresa, index) => {
+                    {listaEmpresasAux.map((empresa, index) => {
                         return (
-                            <ul><button onClick ={() => handleClick(index)}>{ empresa.nombre }</button></ul>
-                        );
-                    })};
+                            <ul><button onClick ={() => handleClick(empresa)}>{ empresa.nombre }</button></ul>
+                        )}
+                    )}
                 </div>
 
                 <div className="empSelService">
-                    <p>Developito</p>
-                    <p>094 054244</p>
-                    <p>berretta.daniel@gmail.com</p>
+                    <p>empresaNombre</p>
+                    <p>empresaTel</p>
+                    <p>empresaMail</p>
                 </div>
 
                 <div className="menuService">
