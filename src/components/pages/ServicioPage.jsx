@@ -40,23 +40,13 @@ export function ServicioPage() {
     }, []);
 
 
-    const handleClick = (empresa) => {
-        console.log(empresa)
-        //const [{empresaNombre, empresaTel}, setEmpresaSel] = useState("");
-        //useEffect (() => {
-            const empresaNombre = empresa.nombre;
-            const empresaTel = empresa.telefono;
-        //    setEmpresaSel({empresaNombre, empresaTel});
-        //})
-        // api.get("/servicio/" + { indice }).then((response) => {
-        //     const empresas = response.data;
-        //     let listaEmpresasAux = [];
-        //     empresas.forEach((elemEmp) => {
-        //         listaEmpresasAux.push(elemEmp);
-        //     });
-        //     setEmpresas(listaEmpresasAux);
-        // });
-    };
+    const [{empresaNombre, empresaTel}, setEmpresaSel] = useState({});
+
+    const handleClick = ((empresa) => {
+        const empresaNombre = empresa.nombre;
+        const empresaTel = empresa.telefono;
+        setEmpresaSel({empresaNombre, empresaTel});
+    });
 
 
     return (
@@ -79,8 +69,8 @@ export function ServicioPage() {
                 </div>
 
                 <div className="empSelService">
-                    <p>empresaNombre</p>
-                    <p>empresaTel</p>
+                    <p>{empresaNombre}</p>
+                    <p>{empresaTel}</p>
                     <p>empresaMail</p>
                 </div>
 
