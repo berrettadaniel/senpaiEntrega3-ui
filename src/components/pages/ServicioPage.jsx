@@ -40,12 +40,13 @@ export function ServicioPage() {
     }, []);
 
 
-    const [{empresaNombre, empresaTel}, setEmpresaSel] = useState({});
+    const [{empresaNombre, empresaTel, empresaMail}, setEmpresaSel] = useState({});
 
     const handleClick = ((empresa) => {
         const empresaNombre = empresa.nombre;
         const empresaTel = empresa.telefono;
-        setEmpresaSel({empresaNombre, empresaTel});
+        const empresaMail = empresa.email;
+        setEmpresaSel({empresaNombre, empresaTel, empresaMail});
     });
 
 
@@ -71,7 +72,7 @@ export function ServicioPage() {
                 <div className="empSelService">
                     <p>{empresaNombre}</p>
                     <p>{empresaTel}</p>
-                    <p>empresaMail</p>
+                    <p>{empresaMail}</p>
                 </div>
 
                 <div className="menuService">
