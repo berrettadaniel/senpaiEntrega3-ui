@@ -127,7 +127,7 @@ export function LoginPage() {
                         {loading ? "Cargando ..." : "Ingresar"}
                     </button>
 
-                    <span className="text-danger d-block">{error}</span>
+                    <span className="text-danger d-block">{error !== null ? error : "Acceso a sistema"}</span>
                 </form>
 
                 {/* Parte derecha inferior del grid */}
