@@ -17,6 +17,8 @@ export function ServicioPage() {
     const [{servicio, transpHeaderImg}, setServicio] = useState("");   //nombre del servicio en el Header
     const [listaEmpresasAux, setEmpresas] = useState([]);              //lista de empresas de ese servicio
 
+    const [tareas, setTareas] = useState([]);
+
     //Efecto secundario - fetch con AXIOS
     useEffect(() =>{
 
@@ -37,6 +39,12 @@ export function ServicioPage() {
             setEmpresas(listaEmpresasAux);
         });
 
+        //considero tareas para el trabajo 2 a modo de completar el obligatorio
+        api.get("/tareas/2").then((response) => {
+            let tareas = response.data;
+            setTareas(tareas);
+        });
+
     }, []);
 
 
@@ -46,7 +54,8 @@ export function ServicioPage() {
         const empresaNombre = empresa.nombre;
         const empresaTel = empresa.telefono;
         const empresaMail = empresa.email;
-        setEmpresaSel({empresaNombre, empresaTel, empresaMail});
+        const empresaId = empresa.id;
+        setEmpresaSel({empresaNombre, empresaTel, empresaMail, empresaId});
     });
 
 
@@ -80,18 +89,41 @@ export function ServicioPage() {
                     <button>Finalizadas</button>
                 </div>
 
+                
                 <div className="tareasHechasFecha">
-                    <p>10/01/1997</p>
+                    {tareas.map((tarea, index) => {
+                        return (
+                            <p>{tarea.fecha}</p>
+                        )}
+                    )}
                 </div>
 
                 <div className="tareasHechasObs">
-                    <p>Todo cambio</p>
+                {tareas.map((tarea, index) => {
+                        return (
+                            <p>{tarea.descripcion}</p>
+                        )}
+                    )}
                 </div>
 
+            {/* 
                 <div className="menuTareasService">
+                    <p>Fecha
+                        <input type="text" name="tareaHechaFec" /></p>
                     <p>Tarea realizada
                         <input type="text" name="tareaHechaDesc" /></p>
                     <button>Agregar</button>
+                </div>
+            */}
+
+                <div className="menuTareasService">
+                    <form method="PUT" action="http://localhost:4000/tareas" encType='application/json'>
+                    <p>Fecha
+                        <input type="text" name="tareaHechaFec" /></p>
+                    <p>Tarea realizada
+                        <input type="text" name="tareaHechaDesc" /></p>
+                    <button>Agregar</button>
+                    </form>
                 </div>
 
 {              /* Footer */}
