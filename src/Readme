@@ -4,7 +4,7 @@ La ruta de los archivos de imagenes en las carpetas del proyecto es:
 /public/assets/imagesOficios/*.*
 
 Nota del docente:
-Al cargar la data externamente, no podemos hacer que las imagenes las procese REACT,
+Al cargar la data externamente, no podemos hacer que las imagenes las procese REACT
 por lo que tienen que ir a la vieja escuela
 Cuando es contenido la imagen siempre tiene que estar fuera, en la api o en la carpeta public
 
@@ -12,3 +12,16 @@ Las imagenes que tiene que procesar react son mas imagenes relacionadas al diseÃ
 Ejemplo logos, iconos, etc
 
 
+===============================================================================================
+
+3a entrega
+
+Gracias Gustavo por el infinito aguante y ahora en especial por tu correccion al regreso de tu licencia
+Gracias a Micaela por las prorrogas (probablemente no merecidas)
+
+Y si algun dia mi hijo ve algo de esto, quizas tambien lo comparta con mi esposa. Â¿Por que esto ultimo?
+Porque ellos tambien merecen un GRACIAS enorme por aguantarme este tiempo, con las salidas un poco interrumpidas o las vacaciones algo cortadas, a veces una cara larga porque las cosas no salian y el tiempo corria, y por estas ultimas semanas entre entrega, prorrogas y salud. Gracias a Joaquin y Ani, los amo con locura.
+
+
+Para la correccion te comento que en el ServicioPage.jsx no logre que cuando se agrega una nueva tarea, se vea inmediatamente despues de agregada a la tabla en la pagina.
+Los middleware no logre hacerlos funcionar del modo esperado, en particular lo referido al JWT. Eso me quedo en el "debe". Lo mismo con Sequelize.

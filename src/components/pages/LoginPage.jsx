@@ -7,7 +7,8 @@ import { useState } from 'react';
 import { api } from '../../api/api';
 
 export function LoginPage() {
-    //para el login de un usuario ya registrado
+
+    //Para hacer el LOGIN de un usuario ya registrado
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -34,7 +35,7 @@ export function LoginPage() {
         );
     };
     
-    //Para manejar los cambios del formulario, o sea el estado
+    //Para manejar los cambios en los campos del email y password del formulario (cambio de estado)
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
     };
@@ -44,8 +45,7 @@ export function LoginPage() {
     };
 
 
-
-    //para el register de un nuevo usuario
+    //Para hacer el REGISTER de un nuevo usuario
     const [emailReg, setEmailReg] = useState("");
     const [passwordReg, setPasswordReg] = useState("");
     const [loadingReg, setLoadingReg] = useState(false);
@@ -72,7 +72,8 @@ export function LoginPage() {
         );
     };
     
-    //Para manejar los cambios del formulario, o sea el estado
+    //Para manejar los cambios en los campos del email y password del nuevo usuario a registrar
+    //en este formulario (cambio de estado)
     const handleEmailRegChange = (event) => {
         setEmailReg(event.target.value);
     };
@@ -80,7 +81,6 @@ export function LoginPage() {
     const handlePasswordRegChange = (event) => {
         setPasswordReg(event.target.value);
     };
-
 
 
     return (
